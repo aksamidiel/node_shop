@@ -1,0 +1,27 @@
+{
+  "name": "node_shop",
+  "version": "1.0.0",
+  "description": "js, node, shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aksamidiel/node_shop.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "shop"
+  ],
+  "author": "aksamidiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aksamidiel/node_shop/issues"
+  },
+  "homepage": "https://github.com/aksamidiel/node_shop#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -14,14 +14,28 @@ app.engine('hbs', hbs.engine) // регистрация движка в Express
 app.set('view engine', 'hbs')  // использование движка
 app.set('views', 'views')  // папка для шаблонов
 
+app.use(express.static('public'))
+
 app.get('/', (req, res)=>{
-   res.render('index')  // рендер указанной страницы
-   
+   res.render('index', {
+       title: 'Главная страница',
+       isHome: true
+   })  // рендер указанной страницы
+
 })
 
-app.get('/about', (req, res)=>{
-    res.status(200)
-    res.sendFile(path.join(__dirname, 'views', 'about.html'))
+app.get('/add', (req, res)=>{
+    res.render('add', {
+        title: 'Добавить товар',
+        isAdd: true
+    })
+})
+
+app.get('/items', (req, res)=>{
+    res.render('items', {
+        title: 'Товары',
+        isItems: true
+    })
 })
 
 

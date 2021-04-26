@@ -3,6 +3,10 @@ const express =require('express')
 const path=require('path')
 const expH = require('express-handlebars')  // подкл движка
 
+const homeRoutes = require('./routes/home')  // подключ роутов
+const addRoutes = require('./routes/add') 
+const itemsRoutes = require('./routes/items')
+
 const app = express()   // аналог server
 
 const hbs = expH.create({
@@ -15,34 +19,9 @@ app.set('view engine', 'hbs')  // использование движка
 app.set('views', 'views')  // папка для шаблонов
 
 app.use(express.static('public'))
-
-app.get('/', (req, res)=>{
-   res.render('index', {
-       title: 'Главная страница',
-       isHome: true
-   })  // рендер указанной страницы
-
-})
-
-app.get('/add', (req, res)=>{
-    res.render('add', {
-        title: 'Добавить товар',
-        isAdd: true
-    })
-})
-
-app.get('/items', (req, res)=>{
-    res.render('items', {
-        title: 'Товары',
-        isItems: true
-    })
-})
-
-
-
-
-
-
+app.use('/', homeRoutes) // использование роутов из папки routes
+app.use('/add', addRoutes)
+app.use('/items', itemsRoutes)
 
 
 const PORT = process.env.PORT || 4000
